@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo 목록 앱</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/front/boot-strap-icons.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Todo 목록</h1>
+            <h2>완료되지 않은 태스크만 보여줍니다.</h2>
+            <p>
+                <a href=""><i class="bi-plus"></i>Add Todo</a>
+                <a href="" class="btn btn-primary" style="float:right">완료한 todo 목록</a>
+            </p>
+
+            <ul>
+                {% for todo in todos %}
+                <li class="list-group-itemp">
+                    <a href="">{{ todo.title }}</a>
+                    {% if todo.important %}
+                        <span class="badge badge-danger">!</span>
+                    {% endif %}
+                    <div style="float:right">
+                        <a href="" class="btn btn-danger">완료</a>
+                        <a href="" class="btn btn-outline-primary">수정하기</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>
